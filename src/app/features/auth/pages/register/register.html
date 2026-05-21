@@ -48,13 +48,12 @@
       Register
     </button>
 
-    <p
-      class="error"
+    @if(errorMessage) {
 
-      *ngIf="errorMessage"
-    >
-      {{ errorMessage }}
-    </p>
+      <p class="error">
+        {{ errorMessage }}
+      </p>
+    }
 
   </form>
 
