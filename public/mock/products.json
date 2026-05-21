@@ -1,0 +1,22 @@
+[
+  {
+    "id": "PROD1001",
+    "title": "iPhone 16 Pro",
+    "description": "Latest Apple flagship smartphone",
+    "price": 129999,
+    "discountPrice": 119999,
+    "rating": 4.8,
+    "thumbnail": "https://picsum.photos/500/500?1",
+    "brand": "Apple",
+    "stock": 10,
+    "images": [
+      "https://picsum.photos/500/500?1",
+      "https://picsum.photos/500/500?2",
+      "https://picsum.photos/500/500?3"
+    ],
+    "specifications": {
+      "ram": "8GB",
+      "storage": "256GB"
+    }
+  }
+]

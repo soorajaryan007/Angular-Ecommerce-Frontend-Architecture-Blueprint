@@ -1,0 +1,39 @@
+<div
+  class="product-card"
+  [routerLink]="['/products', product.id]"
+>
+
+  <img
+    [src]="product.thumbnail"
+    [alt]="product.title"
+  />
+
+  <h2>
+    {{ product.title }}
+  </h2>
+
+  <p class="brand">
+    {{ product.brand }}
+  </p>
+
+  <div class="price-section">
+
+    <span class="discount-price">
+      ₹{{ product.discountPrice }}
+    </span>
+
+    <span class="actual-price">
+      ₹{{ product.price }}
+    </span>
+
+  </div>
+
+  <p class="rating">
+    ⭐ {{ product.rating }}
+  </p>
+
+<button (click)="addToCart()">
+  Add To Cart
+</button>
+
+</div>

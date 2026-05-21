@@ -1,0 +1,37 @@
+.cart-page {
+  padding: 2rem;
+}
+
+.cart-item {
+  display: flex;
+  gap: 2rem;
+
+  margin-bottom: 2rem;
+
+  border-bottom: 1px solid #ddd;
+
+  padding-bottom: 1rem;
+}
+
+.cart-item img {
+  width: 150px;
+  border-radius: 10px;
+}
+
+button {
+  margin-top: 1rem;
+
+  padding: 0.7rem 1rem;
+
+  background: black;
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.total {
+  margin-top: 2rem;
+}

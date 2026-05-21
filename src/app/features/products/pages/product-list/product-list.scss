@@ -1,0 +1,72 @@
+.product-page {
+  padding: 2rem;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 1rem;
+  transition: 0.3s;
+  background: white;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product-card h2 {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.brand {
+  color: gray;
+}
+
+.price-section {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.discount-price {
+  font-weight: bold;
+  color: green;
+}
+
+.actual-price {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.rating {
+  margin-top: 0.5rem;
+}
+
+button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
