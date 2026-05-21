@@ -1,4 +1,7 @@
 export const environment = {
+
   production: false,
-  apiBaseUrl: 'https://api.nebulacart.com'
+
+  apiBaseUrl:
+    'http://localhost:3000'
 };

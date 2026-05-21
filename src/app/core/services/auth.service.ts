@@ -16,6 +16,9 @@ import {
 
 import { User } from '../models/user.model';
 
+import { environment }
+from '../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,7 +41,7 @@ export class AuthService {
   ): Observable<User> {
 
     return this.http.post<User>(
-      'http://localhost:3000/users',
+      `${environment.apiBaseUrl}/users`,
       user
     );
   }
@@ -50,7 +53,7 @@ export class AuthService {
 
     return this.http
       .get<User[]>(
-        `http://localhost:3000/users?email=${email}`
+        `${environment.apiBaseUrl}/users?email=${email}`
       )
       .pipe(
 
