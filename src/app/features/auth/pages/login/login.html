@@ -1,9 +1,11 @@
 <div class="login-page">
 
   <form
-    [formGroup]="loginForm"
-    (ngSubmit)="onSubmit()"
     class="login-form"
+
+    [formGroup]="loginForm"
+
+    (ngSubmit)="onSubmit()"
   >
 
     <h1>
@@ -12,13 +14,17 @@
 
     <input
       type="email"
+
       placeholder="Email"
+
       formControlName="email"
     />
 
     <input
       type="password"
+
       placeholder="Password"
+
       formControlName="password"
     />
 
@@ -26,12 +32,12 @@
       Login
     </button>
 
-    <p
-      class="error"
-      *ngIf="errorMessage"
-    >
-      {{ errorMessage }}
-    </p>
+    @if(errorMessage) {
+
+      <p class="error">
+        {{ errorMessage }}
+      </p>
+    }
 
   </form>
 
