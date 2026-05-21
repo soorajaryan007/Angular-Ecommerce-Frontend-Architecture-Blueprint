@@ -8,32 +8,38 @@
     [alt]="product.title"
   />
 
-  <h2>
-    {{ product.title }}
-  </h2>
+  <div class="product-card-content">
 
-  <p class="brand">
-    {{ product.brand }}
-  </p>
+    <h2>
+      {{ product.title }}
+    </h2>
 
-  <div class="price-section">
+    <p class="brand">
+      {{ product.brand }}
+    </p>
 
-    <span class="discount-price">
-      ₹{{ product.discountPrice }}
-    </span>
+    <div class="price-section">
 
-    <span class="actual-price">
-      ₹{{ product.price }}
-    </span>
+      <span class="discount-price">
+        ₹{{ product.discountPrice }}
+      </span>
+
+      <span class="actual-price">
+        ₹{{ product.price }}
+      </span>
+
+    </div>
+
+    <p class="rating">
+      ⭐ {{ product.rating }}
+    </p>
+
+    <button
+      (click)="addToCart(); $event.stopPropagation()"
+    >
+      Add To Cart
+    </button>
 
   </div>
-
-  <p class="rating">
-    ⭐ {{ product.rating }}
-  </p>
-
-<button (click)="addToCart()">
-  Add To Cart
-</button>
 
 </div>
