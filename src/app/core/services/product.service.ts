@@ -16,23 +16,33 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
 
     return this.http.get<Product[]>(
-      '/assets/mock/products.json'
+      '/mock/products.json'
     );
   }
 
   getProductById(
     id: string
-  ): Observable<Product | undefined> {
+  ): Observable<Product> {
 
     return this.http
       .get<Product[]>('/mock/products.json')
       .pipe(
-        map(products =>
-          products.find(
-            product => product.id === id
-          )
-        )
+        map(products => {
+
+          const product =
+            products.find(
+              p => p.id === id
+            );
+
+          if (!product) {
+
+            throw new Error(
+              'Product not found'
+            );
+          }
+
+          return product;
+        })
       );
   }
-
 }
