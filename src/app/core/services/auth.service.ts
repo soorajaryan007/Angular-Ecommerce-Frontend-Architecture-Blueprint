@@ -1,10 +1,18 @@
-import { Injectable, inject, signal } from '@angular/core';
+import {
+  Injectable,
+  inject,
+  signal
+} from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 
 import { Router } from '@angular/router';
 
-import { Observable, map } from 'rxjs';
+import {
+  Observable,
+  map,
+  tap
+} from 'rxjs';
 
 import { User } from '../models/user.model';
 
@@ -13,11 +21,27 @@ import { User } from '../models/user.model';
 })
 export class AuthService {
 
-  private http = inject(HttpClient);
-
   private router = inject(Router);
 
-  currentUser = signal<User | null>(null);
+  private http = inject(HttpClient);
+
+  currentUser =
+    signal<User | null>(null);
+
+  constructor() {
+
+    this.loadUserFromStorage();
+  }
+
+  register(
+    user: User
+  ): Observable<User> {
+
+    return this.http.post<User>(
+      'http://localhost:3000/users',
+      user
+    );
+  }
 
   login(
     email: string,
@@ -25,14 +49,15 @@ export class AuthService {
   ): Observable<User> {
 
     return this.http
-      .get<User[]>('/mock/users.json')
+      .get<User[]>(
+        `http://localhost:3000/users?email=${email}`
+      )
       .pipe(
+
         map(users => {
 
           const user = users.find(
-            u =>
-              u.email === email &&
-              u.password === password
+            u => u.password === password
           );
 
           if (!user) {
@@ -42,24 +67,19 @@ export class AuthService {
             );
           }
 
+          return user;
+        }),
+
+        tap(user => {
+
           localStorage.setItem(
             'user',
             JSON.stringify(user)
           );
 
           this.currentUser.set(user);
-
-          return user;
         })
       );
-  }
-
-  register(user: User): void {
-
-    console.log(
-      'Mock register:',
-      user
-    );
   }
 
   logout(): void {

@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": "MQDvj-CzUbM",
+      "name": "aryan",
+      "email": "aryan@gmail.com",
+      "password": "$k.~PSzWY9Nu7A4",
+      "role": "CUSTOMER"
+    },
+    {
+      "id": "NO1UniDCbnE",
+      "name": "ram",
+      "email": "ram@gmail.com",
+      "password": "$k.~PSzWY9Nu7A4",
+      "role": "CUSTOMER"
+    },
+    {
+      "id": "SodbuRUnXNo",
+      "name": "raj",
+      "email": "rj@gmail.com",
+      "password": ">fFa.2dRw$t;'~\"",
+      "role": "CUSTOMER"
+    }
+  ],
+  "products": [],
+  "orders": [],
+  "cart": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

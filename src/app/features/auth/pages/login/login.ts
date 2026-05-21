@@ -1,4 +1,7 @@
-import { Component, inject } from '@angular/core';
+import {
+  Component,
+  inject
+} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 
@@ -33,7 +36,8 @@ export class Login {
   private authService =
     inject(AuthService);
 
-  private router = inject(Router);
+  private router =
+    inject(Router);
 
   errorMessage = '';
 
@@ -63,14 +67,17 @@ export class Login {
       return;
     }
 
-    const email =
-      this.loginForm.value.email!;
-
-    const password =
-      this.loginForm.value.password!;
-
     this.authService
-      .login(email, password)
+      .login(
+
+        this.loginForm
+          .value
+          .email!,
+
+        this.loginForm
+          .value
+          .password!
+      )
       .subscribe({
 
         next: () => {

@@ -1,15 +1,61 @@
-<div class="login-page">
+<div class="register-page">
 
-  <div class="login-form">
+  <form
+    class="register-form"
+
+    [formGroup]="registerForm"
+
+    (ngSubmit)="onSubmit()"
+  >
 
     <h1>
-      Register Page
+      Create Account
     </h1>
 
-    <p>
-      Registration flow coming next 🚀
+    <input
+      type="text"
+
+      placeholder="Full Name"
+
+      formControlName="name"
+    />
+
+    <input
+      type="email"
+
+      placeholder="Email"
+
+      formControlName="email"
+    />
+
+    <input
+      type="password"
+
+      placeholder="Password"
+
+      formControlName="password"
+    />
+
+    <input
+      type="password"
+
+      placeholder="Confirm Password"
+
+      formControlName="confirmPassword"
+    />
+
+    <button type="submit">
+      Register
+    </button>
+
+    <p
+      class="error"
+
+      *ngIf="errorMessage"
+    >
+      {{ errorMessage }}
     </p>
 
-  </div>
+  </form>
 
 </div>
