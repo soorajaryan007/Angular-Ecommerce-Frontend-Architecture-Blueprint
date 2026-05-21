@@ -1,14 +1,10 @@
 <nav class="navbar">
 
-  <div class="logo">
+  <div
+    class="logo"
+    routerLink="/products"
+  >
     NebulaCart 🛒
-  </div>
-
-  <div class="search-box">
-    <input
-      type="text"
-      placeholder="Search products..."
-    />
   </div>
 
   <div class="nav-links">
@@ -21,9 +17,35 @@
       Cart
     </a>
 
-    <a routerLink="/login">
-      Login
-    </a>
+    <ng-container
+      *ngIf="
+        !authService.isLoggedIn()
+      "
+    >
+
+      <a routerLink="/login">
+        Login
+      </a>
+
+      <a routerLink="/register">
+        Register
+      </a>
+
+    </ng-container>
+
+    <ng-container
+      *ngIf="
+        authService.isLoggedIn()
+      "
+    >
+
+      <button
+        (click)="logout()"
+      >
+        Logout
+      </button>
+
+    </ng-container>
 
   </div>
 
