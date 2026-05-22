@@ -1,0 +1,98 @@
+<div class="checkout-page">
+
+  <div class="checkout-left">
+
+    <h1>
+      Checkout
+    </h1>
+
+    <form class="checkout-form">
+
+      <input
+        type="text"
+        placeholder="Full Name"
+      />
+
+      <input
+        type="text"
+        placeholder="Phone Number"
+      />
+
+      <input
+        type="text"
+        placeholder="Address"
+      />
+
+      <input
+        type="text"
+        placeholder="City"
+      />
+
+      <input
+        type="text"
+        placeholder="State"
+      />
+
+      <input
+        type="text"
+        placeholder="Pincode"
+      />
+
+    </form>
+
+  </div>
+
+  <div class="checkout-right">
+
+    <h2>
+      Order Summary
+    </h2>
+
+<div
+  class="summary-item"
+
+  *ngFor="
+    let item of cartItems()
+  "
+>
+
+  <img
+    [src]="item.product.thumbnail"
+    [alt]="item.product.title"
+  />
+
+  <div>
+
+    <h3>
+      {{ item.product.title }}
+    </h3>
+
+    <p>
+      Qty:
+      {{ item.quantity }}
+    </p>
+
+    <p>
+      ₹{{ item.product.discountPrice }}
+    </p>
+
+  </div>
+
+</div>
+
+<div class="total-section">
+
+  <h2>
+    Total:
+    ₹{{ totalPrice() }}
+  </h2>
+
+</div>
+
+    <button>
+      Place Order
+    </button>
+
+  </div>
+
+</div>

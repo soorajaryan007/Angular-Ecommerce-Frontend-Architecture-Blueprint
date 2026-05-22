@@ -6,11 +6,14 @@
 
   <div
     class="cart-item"
-    *ngFor="let item of cartService.cartItems()"
+    *ngFor="
+      let item of cartService.cartItems()
+    "
   >
 
     <img
       [src]="item.product.thumbnail"
+      [alt]="item.product.title"
     />
 
     <div>
@@ -29,7 +32,11 @@
       </p>
 
       <button
-        (click)="cartService.removeFromCart(item.product.id)"
+        (click)="
+          cartService.removeFromCart(
+            item.product.id
+          )
+        "
       >
         Remove
       </button>
@@ -41,8 +48,17 @@
   <h2 class="total">
 
     Total:
-    ₹{{ cartService.getCartTotal() }}
+    ₹{{ cartService.totalPrice() }}
 
   </h2>
+  <div class="checkout-section">
 
+  <button
+    routerLink="/checkout"
+    class="checkout-button"
+  >
+    Proceed To Checkout
+  </button>
+
+</div>
 </div>

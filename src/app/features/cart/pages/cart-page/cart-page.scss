@@ -35,3 +35,37 @@ button {
 .total {
   margin-top: 2rem;
 }
+.checkout-section {
+
+  margin-top: 2rem;
+
+  display: flex;
+
+  justify-content: flex-end;
+}
+
+.checkout-button {
+
+  padding: 1rem 2rem;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: black;
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.checkout-button:hover {
+
+  background: #222;
+}

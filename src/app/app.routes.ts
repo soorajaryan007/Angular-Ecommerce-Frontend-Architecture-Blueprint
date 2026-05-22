@@ -50,6 +50,14 @@ export const routes: Routes = [
     import(
       './features/auth/pages/register/register'
     ).then(m => m.Register)
+},
+{
+  path: 'checkout',
+
+  loadComponent: () =>
+    import(
+      './features/checkout/pages/checkout-page/checkout-page'
+    ).then(m => m.CheckoutPage)
 }
 
 ];
