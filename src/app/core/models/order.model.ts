@@ -2,16 +2,25 @@ import { CartItem } from './cart-item.model';
 
 export interface Order {
 
-  id: string;
+  id?: string;
+
+  customerName: string;
+
+  phone: string;
+
+  address: string;
+
+  city: string;
+
+  state: string;
+
+  pincode: string;
 
   items: CartItem[];
 
   totalAmount: number;
 
-  createdAt: string;
+  status: string;
 
-  status:
-    | 'PLACED'
-    | 'SHIPPED'
-    | 'DELIVERED';
+  createdAt: string;
 }

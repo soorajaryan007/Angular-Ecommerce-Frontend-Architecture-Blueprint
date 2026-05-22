@@ -2,8 +2,7 @@
 
   display: grid;
 
-  grid-template-columns:
-    2fr 1fr;
+  grid-template-columns: 2fr 1fr;
 
   gap: 2rem;
 
@@ -15,12 +14,12 @@
 
   background: white;
 
-  padding: 2rem;
+  padding: 1.5rem;
 
-  border-radius: 20px;
+  border-radius: 16px;
 
   box-shadow:
-    0 4px 20px rgba(0,0,0,0.08);
+    0 2px 10px rgba(0,0,0,0.08);
 }
 
 .checkout-form {
@@ -38,16 +37,16 @@
 
   padding: 1rem;
 
+  border: 1px solid #ddd;
+
   border-radius: 10px;
 
-  border: 1px solid #ddd;
+  font-size: 1rem;
 }
 
-.checkout-right button {
+.checkout-form button {
 
-  width: 100%;
-
-  margin-top: 2rem;
+  margin-top: 1rem;
 
   padding: 1rem;
 
@@ -61,7 +60,23 @@
 
   font-size: 1rem;
 
+  font-weight: 600;
+
   cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.checkout-form button:hover {
+
+  background: #222;
+}
+
+.checkout-form button:disabled {
+
+  background: #999;
+
+  cursor: not-allowed;
 }
 
 .summary-item {
@@ -70,34 +85,23 @@
 
   gap: 1rem;
 
-  margin-top: 1.5rem;
+  padding: 1rem 0;
 
-  padding-bottom: 1rem;
-
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 }
 
 .summary-item img {
 
-  width: 80px;
+  width: 70px;
 
-  height: 80px;
+  height: 70px;
 
   object-fit: cover;
 
   border-radius: 10px;
 }
 
-.summary-item h3 {
-
-  margin: 0;
-
-  font-size: 1rem;
-}
-
 .total-section {
 
   margin-top: 2rem;
-
-  font-weight: bold;
 }

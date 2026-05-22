@@ -6,37 +6,59 @@
       Checkout
     </h1>
 
-    <form class="checkout-form">
+    <form
+
+      class="checkout-form"
+
+      [formGroup]="checkoutForm"
+
+      (ngSubmit)="placeOrder()"
+    >
 
       <input
         type="text"
         placeholder="Full Name"
+        formControlName="customerName"
       />
 
       <input
         type="text"
         placeholder="Phone Number"
+        formControlName="phone"
       />
 
       <input
         type="text"
         placeholder="Address"
+        formControlName="address"
       />
 
       <input
         type="text"
         placeholder="City"
+        formControlName="city"
       />
 
       <input
         type="text"
         placeholder="State"
+        formControlName="state"
       />
 
       <input
         type="text"
         placeholder="Pincode"
+        formControlName="pincode"
       />
+
+      <button
+
+        type="submit"
+
+        [disabled]="checkoutForm.invalid"
+      >
+        Place Order
+      </button>
 
     </form>
 
@@ -48,52 +70,46 @@
       Order Summary
     </h2>
 
-<div
-  class="summary-item"
+    <div
+      class="summary-item"
 
-  *ngFor="
-    let item of cartItems()
-  "
->
+      *ngFor="
+        let item of cartItems()
+      "
+    >
 
-  <img
-    [src]="item.product.thumbnail"
-    [alt]="item.product.title"
-  />
+      <img
+        [src]="item.product.thumbnail"
+        [alt]="item.product.title"
+      />
 
-  <div>
+      <div>
 
-    <h3>
-      {{ item.product.title }}
-    </h3>
+        <h3>
+          {{ item.product.title }}
+        </h3>
 
-    <p>
-      Qty:
-      {{ item.quantity }}
-    </p>
+        <p>
+          Qty:
+          {{ item.quantity }}
+        </p>
 
-    <p>
-      ₹{{ item.product.discountPrice }}
-    </p>
+        <p>
+          ₹{{ item.product.discountPrice }}
+        </p>
 
-  </div>
+      </div>
 
-</div>
+    </div>
 
-<div class="total-section">
+    <div class="total-section">
 
-  <h2>
-    Total:
-    ₹{{ totalPrice() }}
-  </h2>
+      <h2>
+        Total:
+        ₹{{ totalPrice() }}
+      </h2>
 
-</div>
-
-<button
-  (click)="placeOrder()"
->
-  Place Order
-</button>
+    </div>
 
   </div>
 

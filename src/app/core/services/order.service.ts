@@ -1,7 +1,13 @@
 import {
   Injectable,
-  signal
+  inject
 } from '@angular/core';
+
+import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
+
+import { environment } from '../../../environments/environment';
 
 import { Order } from '../models/order.model';
 
@@ -10,20 +16,25 @@ import { Order } from '../models/order.model';
 })
 export class OrderService {
 
-  orders =
-    signal<Order[]>([]);
+  private http =
+    inject(HttpClient);
 
   placeOrder(
     order: Order
-  ): void {
+  ): Observable<Order> {
 
-    this.orders.update(
+    return this.http.post<Order>(
 
-      currentOrders => [
+      `${environment.apiBaseUrl}/orders`,
+      order
+    );
+  }
 
-        order,
-        ...currentOrders
-      ]
+  getOrders(): Observable<Order[]> {
+
+    return this.http.get<Order[]>(
+
+      `${environment.apiBaseUrl}/orders`
     );
   }
 }

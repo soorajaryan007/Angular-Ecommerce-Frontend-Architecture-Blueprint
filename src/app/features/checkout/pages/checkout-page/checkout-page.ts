@@ -5,11 +5,19 @@ import {
 
 import { CommonModule } from '@angular/common';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
+
+import { Router } from '@angular/router';
 
 import { CartService } from '../../../../core/services/cart.service';
 
 import { OrderService } from '../../../../core/services/order.service';
+
+import { Order } from '../../../../core/models/order.model';
 
 @Component({
   selector: 'app-checkout-page',
@@ -27,11 +35,17 @@ import { OrderService } from '../../../../core/services/order.service';
 })
 export class CheckoutPage {
 
+  private fb =
+    inject(FormBuilder);
+
   private cartService =
     inject(CartService);
 
   private orderService =
-  inject(OrderService);
+    inject(OrderService);
+
+  private router =
+    inject(Router);
 
   cartItems =
     this.cartService.cartItems;
@@ -39,34 +53,122 @@ export class CheckoutPage {
   totalPrice =
     this.cartService.totalPrice;
 
-placeOrder(): void {
+  checkoutForm =
+    this.fb.group({
 
-  const order = {
+      customerName: [
+        '',
+        Validators.required
+      ],
 
-    id:
-      'ORD' + Date.now(),
+      phone: [
+        '',
+        Validators.required
+      ],
 
-    items:
-      this.cartItems(),
+      address: [
+        '',
+        Validators.required
+      ],
 
-    totalAmount:
-      this.totalPrice(),
+      city: [
+        '',
+        Validators.required
+      ],
 
-    createdAt:
-      new Date().toISOString(),
+      state: [
+        '',
+        Validators.required
+      ],
 
-    status:
-      'PLACED' as const
-  };
+      pincode: [
+        '',
+        Validators.required
+      ]
+    });
 
-  this.orderService
-    .placeOrder(order);
+  placeOrder(): void {
 
-  this.cartService
-    .clearCart();
+    if (
+      this.checkoutForm.invalid
+    ) {
 
-  alert(
-    'Order placed successfully 🚀'
-  );
-}
+      this.checkoutForm
+        .markAllAsTouched();
+
+      return;
+    }
+
+    if (
+      this.cartItems().length === 0
+    ) {
+
+      alert(
+        'Cart is empty'
+      );
+
+      return;
+    }
+
+    const formValue =
+      this.checkoutForm.value;
+
+    const order: Order = {
+
+      customerName:
+        formValue.customerName || '',
+
+      phone:
+        formValue.phone || '',
+
+      address:
+        formValue.address || '',
+
+      city:
+        formValue.city || '',
+
+      state:
+        formValue.state || '',
+
+      pincode:
+        formValue.pincode || '',
+
+      items:
+        this.cartItems(),
+
+      totalAmount:
+        this.totalPrice(),
+
+      status: 'PLACED',
+
+      createdAt:
+        new Date().toISOString()
+    };
+
+    this.orderService
+      .placeOrder(order)
+      .subscribe({
+
+        next: () => {
+
+          this.cartService
+            .clearCart();
+
+          alert(
+            'Order placed successfully 🚀'
+          );
+
+          this.router.navigate(
+            ['/orders']
+          );
+        },
+
+        error: () => {
+
+          alert(
+            'Failed to place order'
+          );
+        }
+      });
+  }
 }
