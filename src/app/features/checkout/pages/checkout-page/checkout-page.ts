@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { CartService } from '../../../../core/services/cart.service';
 
+import { OrderService } from '../../../../core/services/order.service';
+
 @Component({
   selector: 'app-checkout-page',
 
@@ -28,18 +30,43 @@ export class CheckoutPage {
   private cartService =
     inject(CartService);
 
+  private orderService =
+  inject(OrderService);
+
   cartItems =
     this.cartService.cartItems;
 
   totalPrice =
     this.cartService.totalPrice;
 
-  placeOrder(): void {
+placeOrder(): void {
 
-    alert(
-      'Order placed successfully 🚀'
-    );
+  const order = {
 
-    this.cartService.clearCart();
-  }
+    id:
+      'ORD' + Date.now(),
+
+    items:
+      this.cartItems(),
+
+    totalAmount:
+      this.totalPrice(),
+
+    createdAt:
+      new Date().toISOString(),
+
+    status:
+      'PLACED' as const
+  };
+
+  this.orderService
+    .placeOrder(order);
+
+  this.cartService
+    .clearCart();
+
+  alert(
+    'Order placed successfully 🚀'
+  );
+}
 }
