@@ -1,11 +1,6 @@
-export type UserRole =
-  | 'admin'
-  | 'customer'
-  | 'seller';
-
 export interface User {
 
-  readonly id: string;
+  id: string;
 
   name: string;
 
@@ -13,5 +8,5 @@ export interface User {
 
   password: string;
 
-  role: UserRole;
+  role: string;
 }
