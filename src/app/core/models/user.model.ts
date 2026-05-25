@@ -1,6 +1,11 @@
+export type UserRole =
+  | 'admin'
+  | 'customer'
+  | 'seller';
+
 export interface User {
 
-  id: string;
+  readonly id: string;
 
   name: string;
 
@@ -8,5 +13,5 @@ export interface User {
 
   password: string;
 
-  role: string;
+  role: UserRole;
 }

@@ -30,7 +30,91 @@
     }
   ],
   "products": [],
-  "orders": [],
+  "orders": [
+    {
+      "customerName": "John",
+      "phone": "9999912345",
+      "address": "Santa Clara",
+      "city": "California",
+      "state": "USA",
+      "pincode": "32435",
+      "items": [
+        {
+          "product": {
+            "id": "PROD1004",
+            "title": "Sony WH-1000XM6",
+            "description": "Noise cancelling premium headphones",
+            "price": 34999,
+            "discountPrice": 29999,
+            "rating": 4.6,
+            "thumbnail": "https://picsum.photos/500/500?10",
+            "brand": "Sony",
+            "stock": 20,
+            "images": [
+              "https://picsum.photos/500/500?10",
+              "https://picsum.photos/500/500?11",
+              "https://picsum.photos/500/500?12"
+            ],
+            "specifications": {
+              "battery": "40 Hours",
+              "connectivity": "Bluetooth 5.3"
+            }
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "PROD1005",
+            "title": "iPad Pro M4",
+            "description": "Powerful Apple tablet for creators",
+            "price": 119999,
+            "discountPrice": 109999,
+            "rating": 4.8,
+            "thumbnail": "https://picsum.photos/500/500?13",
+            "brand": "Apple",
+            "stock": 12,
+            "images": [
+              "https://picsum.photos/500/500?13",
+              "https://picsum.photos/500/500?14",
+              "https://picsum.photos/500/500?15"
+            ],
+            "specifications": {
+              "display": "13-inch OLED",
+              "storage": "256GB"
+            }
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": "PROD1003",
+            "title": "MacBook Air M4",
+            "description": "Ultra thin Apple laptop with M4 chip",
+            "price": 149999,
+            "discountPrice": 139999,
+            "rating": 4.9,
+            "thumbnail": "https://picsum.photos/500/500?7",
+            "brand": "Apple",
+            "stock": 8,
+            "images": [
+              "https://picsum.photos/500/500?7",
+              "https://picsum.photos/500/500?8",
+              "https://picsum.photos/500/500?9"
+            ],
+            "specifications": {
+              "ram": "16GB",
+              "storage": "512GB SSD"
+            }
+          },
+          "quantity": 2
+        }
+      ],
+      "totalAmount": 419996,
+      "status": "PLACED",
+      "createdAt": "2026-05-25T07:48:40.068Z",
+      "id": "FL6HblOheXI"
+    }
+  ],
   "cart": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
